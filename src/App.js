@@ -25,12 +25,13 @@ const App = () => {
   };
 
   return (
-    <div class="container">
+    <div className="container">
       <SearchForm/>
       <Nav/>
 
       <Routes>
         <Route path="/" element={<PhotoContainer getPhotos={getPhotos} photos={photos} loading={loading}/>} />
+        <Route path="/babies" element={<PhotoContainer search={"babies"} getPhotos={getPhotos} photos={photos} loading={loading}/>} />
       </Routes>
     </div>
   );
