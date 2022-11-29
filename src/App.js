@@ -10,15 +10,16 @@ import PhotoContainer from "./Components/PhotoContainer";
 
 
 const App = () => {
-  const [photo, setPhoto] = useState([]);
+  const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getPhotos = (keyword) => {
+    setLoading(true);
     axios
       .get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${keyword}&per_page=24&format=json&nojsoncallback=1`)
       .then((data) => {
         setLoading(false);
-        setPhoto(data.data.photos.photo);
+        setPhotos(data.data.photos.photo);
       })
       .catch(error => {console.log("Error fetching and parsing data", error)})
   };
@@ -29,7 +30,7 @@ const App = () => {
       <Nav/>
 
       <Routes>
-
+        <Route path="/" element={<PhotoContainer getPhotos={getPhotos} photos={photos} loading={loading}/>} />
       </Routes>
     </div>
   );

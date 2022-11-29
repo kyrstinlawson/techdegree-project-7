@@ -1,10 +1,10 @@
 // A Photo component that displays the li and img elements.
 import React from "react";
 
-const Photo = (props) => {
+const Photo = ({url}) => {
     return (
         <li>
-            <img src={props.url} alt=""/>
+            <img src={url} alt=""/>
         </li>
     );
 };
