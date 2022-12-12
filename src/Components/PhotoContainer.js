@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import Photo from "./Photo";
 import NotFound from "./NotFound";
 
-const PhotoContainer = ({search, getPhotos, photos, loading}) => {
+const PhotoContainer = ({term, getPhotos, photos, loading}) => {
     const {keyword} = useParams();
-    let searchTerm = keyword ? keyword : search;
+    let searchTerm = keyword ? keyword : term;
     
     useEffect(() => {getPhotos(searchTerm)}, [searchTerm]);
 
