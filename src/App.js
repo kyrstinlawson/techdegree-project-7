@@ -6,6 +6,7 @@ import apiKey from "./config";
 import SearchForm from "./Components/SearchForm";
 import Nav from "./Components/Nav";
 import PhotoContainer from "./Components/PhotoContainer";
+import PageNotFound from "./Components/PageNotFound";
 
 
 const App = () => {
@@ -30,10 +31,11 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<PhotoContainer getPhotos={getPhotos} photos={photos} loading={loading}/>} />
-        <Route path="/cats" element={<PhotoContainer term={"cats"} getPhotos={getPhotos} photos={photos} loading={loading}/>} />
+        <Route path="/sunsets" element={<PhotoContainer term={"sunsets"} getPhotos={getPhotos} photos={photos} loading={loading}/>} />
         <Route path="/dogs" element={<PhotoContainer term={"dogs"} getPhotos={getPhotos} photos={photos} loading={loading}/>} />
-        <Route path="/computers" element={<PhotoContainer term={"computers"} getPhotos={getPhotos} photos={photos} loading={loading}/>} />
-        <Route path="search/:topic" element={<PhotoContainer getPhotos={getPhotos} photos={photos} loading={loading} />} />
+        <Route path="/trees" element={<PhotoContainer term={"trees"} getPhotos={getPhotos} photos={photos} loading={loading}/>} />
+        <Route path="search/:keyword" element={<PhotoContainer getPhotos={getPhotos} photos={photos} loading={loading} />} />
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </div>
   );

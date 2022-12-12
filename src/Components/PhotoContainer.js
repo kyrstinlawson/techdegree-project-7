@@ -22,7 +22,11 @@ const PhotoContainer = ({term, getPhotos, photos, loading}) => {
             <h2>Results</h2>
             {loading ? <p>Loading...</p> : null}
             <ul>
-                {photos.length > 0 ? photos : <NotFound/>}
+                {
+                    (photos.length > 0 && !loading) ? photos
+                    : (photos.length === 0 && !loading) ? <NotFound keyword={searchTerm} />
+                    : null
+                }
             </ul>
         </div>
     );

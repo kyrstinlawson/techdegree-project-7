@@ -1,8 +1,11 @@
 // A NotFound component for displaying a user-friendly message when the search returns no results.
 
-const NotFound = () => {
+const NotFound = ({keyword}) => {
     return (
-        <h2>No results found.</h2>
+        <li className="not-found">
+            <h2>No results found</h2>
+            <p>Sorry, no results for {keyword}. Please try again.</p>
+        </li>
     );
 };
 

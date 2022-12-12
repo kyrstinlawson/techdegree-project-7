@@ -1,4 +1,4 @@
-// A Photo component that displays the li and img elements.
+
 import React from "react";
 
 const Photo = ({url}) => {
